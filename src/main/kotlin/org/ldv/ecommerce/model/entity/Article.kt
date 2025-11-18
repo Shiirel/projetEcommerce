@@ -2,7 +2,8 @@ package org.ldv.ecommerce.model.entity
 
 
 import jakarta.persistence.*
-import java.util.Date
+import java.time.LocalDate
+
 
 
 @Entity
@@ -16,7 +17,9 @@ abstract class Article (
     var nom : String,
     var prix : Double,
     var estDisponible : Boolean,
-    var dateModif : Date,
+    var dateModif : LocalDate,
+    var stock : Int,
+    var lienImage : String,
 
     //Association One to Many avec Commande
     @OneToMany(mappedBy = "commentaire")
@@ -26,4 +29,5 @@ abstract class Article (
     @OneToMany(mappedBy = "ligneCommande")
     var ligneCommandes: MutableList<LigneCommande> = mutableListOf()
 ){
+
 }

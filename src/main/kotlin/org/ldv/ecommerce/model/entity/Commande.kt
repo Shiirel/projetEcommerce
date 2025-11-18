@@ -1,7 +1,7 @@
 package org.ldv.ecommerce.model.entity
 
 import jakarta.persistence.*
-import java.util.Date
+import java.time.LocalDate
 
 
 @Entity
@@ -10,8 +10,8 @@ class Commande (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     var id : Long?,
-    var dateCommande : Date,
-    var dateModif : Date,
+    var dateCommande : LocalDate,
+    var dateModif : LocalDate,
     var statut : String,
 
     //Association Many to One avec Utilisateur
