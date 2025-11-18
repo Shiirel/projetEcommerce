@@ -9,6 +9,7 @@ import jakarta.persistence.*
 import java.util.Date
 
 @Entity
+@DiscriminatorValue("LIVRE")
 class Livre (
     id:Long?,
     nom:String,

@@ -1,10 +1,6 @@
 package org.ldv.ecommerce.model.entity
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.*
 import java.util.Date
 
 
@@ -16,6 +12,20 @@ class Commande (
     var id : Long?,
     var dateCommande : Date,
     var dateModif : Date,
-    var statut : String
+    var statut : String,
+
+    //Association Many to One avec Utilisateur
+    @ManyToOne
+    @JoinColumn(name = "utilisateur_id")
+    var utilisateur: Utilisateur? = null,
+
+    //Association Many to One avec Article
+    @ManyToOne
+    @JoinColumn(name = "article_id")
+    var article: Article? = null,
+
+    //Association One to Many avec LigneCommande
+    @OneToMany(mappedBy = "ligneCommande")
+    var ligneCommandes: MutableList<LigneCommande> = mutableListOf()
 ) {
 }

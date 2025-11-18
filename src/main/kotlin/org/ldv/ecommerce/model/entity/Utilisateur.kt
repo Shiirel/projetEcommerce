@@ -4,6 +4,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.*
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.OneToMany
 import java.util.Date
@@ -20,8 +21,18 @@ class Utilisateur(
     @Column(unique = true)
     var email : String,
     var mdp : String,
-    //Association One to Many avec Utilisateur
-    @OneToMany(mappedBy = "utilisateur")
-    var utilisateurs: MutableList<Utilisateur> = mutableListOf()
+
+    //Association Many to One avec Role
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    var role: Role? = null,
+
+    //Association One to Many avec Commentaire
+    @OneToMany(mappedBy = "commentaire")
+    var commentaires: MutableList<Commentaire> = mutableListOf(),
+
+    //Association One to Many avec Commande
+    @OneToMany(mappedBy = "commande")
+    var commandes: MutableList<Commande> = mutableListOf(),
     ){
 }
