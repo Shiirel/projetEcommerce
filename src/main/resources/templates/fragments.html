@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+    <div th:fragment="header" class="container">
+        <header class="bg-dark text-white py-3">
+            <div class="container">
+                <h1>Mon Site</h1>
+                <nav>Menu de navigation</nav>
+            </div>
+        </header>
+    </div>
+    <div th:fragment="footer" class="container">
+        <footer class="bg-secondary text-white text-center py-3">
+            <div class="container">
+                <p class="mb-0">&copy; 2025 – Mon Site Bootstrap</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
