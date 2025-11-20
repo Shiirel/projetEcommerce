@@ -18,10 +18,11 @@ import org.ldv.ecommerce.model.entity.Papeterie
 import org.ldv.ecommerce.model.entity.Role
 import org.ldv.ecommerce.model.entity.Utilisateur
 import org.springframework.boot.CommandLineRunner
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.stereotype.Component
 import java.time.LocalDate
 
-@Component
+@ComponentScan
 class DataInitializer(
     private val articleDAO: ArticleDAO,
     private val commandeDAO: CommandeDAO,

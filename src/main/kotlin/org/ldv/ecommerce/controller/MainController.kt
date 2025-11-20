@@ -9,7 +9,7 @@ class MainController (){
      * @return le chemin vers le template a partir du dossier ressources/templates (on ne marque pas le .html)
      */
     @GetMapping("/ecommerce")
-    fun home():String{
+    fun home(): String{
         return "index"
     }
 

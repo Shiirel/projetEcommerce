@@ -29,11 +29,11 @@ class Utilisateur(
     var role: Role? = null,
 
     //Association One to Many avec Commentaire
-    @OneToMany(mappedBy = "commentaire")
+    @OneToMany(mappedBy = "utilisateur")
     var commentaires: MutableList<Commentaire> = mutableListOf(),
 
     //Association One to Many avec Commande
-    @OneToMany(mappedBy = "commande")
+    @OneToMany(mappedBy = "utilisateur")
     var commandes: MutableList<Commande> = mutableListOf(),
     ){
 }

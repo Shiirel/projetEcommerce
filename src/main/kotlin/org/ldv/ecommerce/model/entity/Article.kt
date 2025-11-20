@@ -21,11 +21,11 @@ abstract class Article (
     var lienImage : String,
 
     //Association One to Many avec Commande
-    @OneToMany(mappedBy = "commentaire")
+    @OneToMany(mappedBy = "article")
     var commentaires: MutableList<Commentaire> = mutableListOf(),
 
     //Association One to Many avec LigneCommande
-    @OneToMany(mappedBy = "ligneCommande")
+    @OneToMany(mappedBy = "article")
     var ligneCommandes: MutableList<LigneCommande> = mutableListOf()
 ){
 

@@ -11,7 +11,7 @@ class LigneCommande (
     //Association Many to One avec Commande
     @MapsId("commandeId")
     @ManyToOne
-    @JoinColumn(name = "commande_id")
+    @JoinColumn(name = "commandeId")
     var commande: Commande? = null,
 
 

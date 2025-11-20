@@ -25,7 +25,7 @@ class Commande (
     var article: Article? = null,
 
     //Association One to Many avec LigneCommande
-    @OneToMany(mappedBy = "ligneCommande")
+    @OneToMany(mappedBy = "commande")
     var ligneCommandes: MutableList<LigneCommande> = mutableListOf()
 ) {
 }
