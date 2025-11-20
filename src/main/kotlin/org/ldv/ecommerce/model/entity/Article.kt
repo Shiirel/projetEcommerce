@@ -18,6 +18,7 @@ abstract class Article (
     var prix : Double,
     var dateModif : LocalDate,
     var stock : Int,
+    @Column(length = 1500)
     var lienImage : String,
 
     //Association One to Many avec Commande

@@ -16,7 +16,7 @@ class Papeterie (
     stock : Int,
     lienImage : String,
 
-    @Column(nullable = false)
+
     var marque : String,
     var categorie : String
 ) : Article(id,nom,prix,dateModif,stock,lienImage){

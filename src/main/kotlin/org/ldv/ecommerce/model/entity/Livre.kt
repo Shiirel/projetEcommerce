@@ -19,9 +19,10 @@ class Livre (
     stock : Int,
     lienImage : String,
 
-    @Column(nullable = false)
+
     var auteur : String,
     var genre : String,
+    @Column(length = 1500)
     var description : String,
     var date : String
 ) : Article(id,nom,prix,dateModif,stock,lienImage){

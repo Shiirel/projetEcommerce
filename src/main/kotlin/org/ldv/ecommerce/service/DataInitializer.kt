@@ -5,7 +5,7 @@ import org.ldv.ecommerce.model.dao.ArticleDAO
 import org.ldv.ecommerce.model.dao.CommandeDAO
 import org.ldv.ecommerce.model.dao.CommentaireDAO
 import org.ldv.ecommerce.model.dao.LigneCommandeDAO
-import org.ldv.ecommerce.model.dao.LigneCommandeIdDAO
+
 import org.ldv.ecommerce.model.dao.LivreDAO
 import org.ldv.ecommerce.model.dao.PapeterieDAO
 import org.ldv.ecommerce.model.dao.RoleDAO
@@ -19,16 +19,17 @@ import org.ldv.ecommerce.model.entity.Role
 import org.ldv.ecommerce.model.entity.Utilisateur
 import org.springframework.boot.CommandLineRunner
 import org.springframework.context.annotation.ComponentScan
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Component
 import java.time.LocalDate
 
-@ComponentScan
+@Component
 class DataInitializer(
     private val articleDAO: ArticleDAO,
     private val commandeDAO: CommandeDAO,
     private val commentaireDAO: CommentaireDAO,
     private val ligneCommandeDAO: LigneCommandeDAO,
-    private val ligneCommandeId: LigneCommandeIdDAO,
+
     private val livreDAO: LivreDAO,
     private val papeterieDAO: PapeterieDAO,
     private val roleDAO: RoleDAO,
@@ -39,7 +40,7 @@ class DataInitializer(
     override fun run(vararg args: String?) {
 
         // Vérifie si la base contient déjà des données
-        if (articleDAO.count() > 0 || commandeDAO.count() > 0 || commentaireDAO.count() > 0 || ligneCommandeDAO.count() > 0 || ligneCommandeId.count() > 0 || livreDAO.count() > 0 || papeterieDAO.count() > 0 || roleDAO.count() > 0 || utilisateurDAO.count() > 0) {
+        if (articleDAO.count() > 0 || commandeDAO.count() > 0 || commentaireDAO.count() > 0 || ligneCommandeDAO.count() > 0 || livreDAO.count() > 0 || papeterieDAO.count() > 0 || roleDAO.count() > 0 || utilisateurDAO.count() > 0) {
             println("ℹ️ Données déjà présentes, initialisation ignorée.")
             return
         }
@@ -120,14 +121,14 @@ class DataInitializer(
             nom = "Elena",
             dateModif = LocalDate.now(),
             email = "elena@gmail.com",
-            mdp = "elena123"
+            mdp = "elena123",
             role = roleClient
         )
         val userAdmin = Utilisateur(
             nom = "super admin",
             dateModif = LocalDate.now(),
             email = "admin@gmail.com",
-            mdp = "admin123"
+            mdp = "admin123",
             role = roleAdmin
         )
 
