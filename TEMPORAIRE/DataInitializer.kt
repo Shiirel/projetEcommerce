@@ -33,6 +33,7 @@ class DataInitializer(
     private val papeterieDAO: PapeterieDAO,
     private val roleDAO: RoleDAO,
     private val utilisateurDAO: UtilisateurDAO,
+    val passwordEncoder: PasswordEncoder
 ) : CommandLineRunner {
 
     override fun run(vararg args: String?) {
@@ -103,10 +104,10 @@ class DataInitializer(
 
         // === Roles ===
         val roleAdmin = Role(
-            nom = "administrateur"
+            nom = "ADMINISTRATEUR"
         )
         val roleClient = Role(
-            nom = "client"
+            nom = "CLIENT"
         )
 
         // === Sauvegarde des roles ===
@@ -120,10 +121,18 @@ class DataInitializer(
             dateModif = LocalDate.now(),
             email = "elena@gmail.com",
             mdp = "elena123"
+            role = roleClient
+        )
+        val userAdmin = Utilisateur(
+            nom = "super admin",
+            dateModif = LocalDate.now(),
+            email = "admin@gmail.com",
+            mdp = "admin123"
+            role = roleAdmin
         )
 
         // === Sauvegarde des commentaires ===
-        utilisateurDAO.saveAll(listOf(user1))
+        utilisateurDAO.saveAll(listOf(user1,userAdmin))
         println("✅ Données initiales insérées : ${utilisateurDAO.count()} utilisateurs.")
     }
 }

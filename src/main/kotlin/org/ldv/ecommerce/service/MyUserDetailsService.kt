@@ -1,5 +1,9 @@
 package org.ldv.ecommerce.service
 
+import org.ldv.ecommerce.model.dao.UtilisateurDAO
+import org.springframework.security.core.userdetails.UserDetails
+import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Service
 
 /**
