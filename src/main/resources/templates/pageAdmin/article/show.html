@@ -1,0 +1,54 @@
+<!doctype html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="content">
+    <main class="py-5">
+        <div class="container">
+            <h1 class="mb-5 text-center" th:text="${article.nom}"></h1>
+            <div class="row">
+                <div class="col">
+                    <img th:src="${article.lienImage}"
+                         alt="Image de l'article"
+                         class="img-fluid"
+                         onerror="this.onerror=null;this.src='/images/default.jpeg';">
+                </div>
+                <div class="col">
+                    <ul>
+                        <li>Prix : <span th:text="${article.prix}"></span></li>
+                        <li>Stock : <span th:text="${article.stock}"></span></li>
+                        <li>Type : <span th:text="${article.getClass().simpleName}"></span></li> <!--Affiche si c'est un livre ou de la papeterie (suggestion chatgpt)-->
+
+                        <li th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Livre)}">
+                            Auteur : <span th:text="${article.auteur}"></span>
+                        </li>
+                        <li th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Livre)}">
+                            Genre : <span th:text="${article.genre}"></span>
+                        </li>
+                        <li th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Livre)}">
+                            Description : <span th:text="${article.description}"></span>
+                        </li>
+                        <li th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Livre)}">
+                            Date : <span th:text="${article.date}"></span>
+                        </li>
+
+                        <li th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Papeterie)}">
+                            Marque : <span th:text="${article.marque}"></span>
+                        </li>
+                        <li th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Papeterie)}">
+                            Catégorie : <span th:text="${article.categorie}"></span>
+                        </li>
+                    </ul>
+
+                    <div class="btn-group">
+                        <a th:href="@{/ecommerce/admin/articles}" class="btn btn-secondary">Retour</a>
+                        <a href="" class="btn btn-primary">Modifier</a>
+                        <a href="" class="btn btn-danger">Supprimer</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+
+</html>

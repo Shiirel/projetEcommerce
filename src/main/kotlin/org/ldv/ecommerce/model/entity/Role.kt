@@ -9,7 +9,7 @@ class Role (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    var id : Long?,
+    var id : Long?=null,
     var nom : String,
 
     //Association One to Many avec Utilisateur

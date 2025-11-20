@@ -1,0 +1,52 @@
+<!doctype html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="content">
+    <main class="py-5">
+        <div class="container">
+            <h1 class="mb-5 text-center">Création d'un nouvel article</h1>
+            <form th:object="${papeterie}" action="@{/ecommerce/admin/articles/storePapeterie}" method="post">
+                <div class="row">
+                    <div class="my-2 mx-auto col-4">
+                        <div class="mb-2">
+                            <label for="inputNom">Saisir le nom : </label>
+                            <input required id="inputNom" th:field="*{nom}" type="text" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label for="inputPrix">Saisir le prix : </label>
+                            <input required min="1" max="999" id="inputPrix" th:field="*{prix}" type="text" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label for="inputDateModif">Saisir la date de modification : </label>
+                            <input required id="inputDateModif" th:field="*{dateModif}" type="date" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label for="inputStock">Saisir le stock : </label>
+                            <input required min="0" max="999" id="inputStock" th:field="*{stock}" type="number" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label for="inputImage">Saisir le lien de l'image : </label>
+                            <input required id="inputImage" th:field="*{lienImage}" type="text" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label for="inputMarque">Saisir la marque : </label>
+                            <input required id="inputMarque" th:field="*{marque}" type="text" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label for="inputCategorie">Saisir la catégorie : </label>
+                            <input required id="inputCategorie" th:field="*{categorie}" type="text" class="form-control">
+                        </div>
+
+
+
+
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                        <a th:href="@{ecommerce/admin/articles}" class="btn btn-secondary">Retour</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+
+</html>

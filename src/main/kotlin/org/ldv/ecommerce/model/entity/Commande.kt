@@ -9,7 +9,7 @@ class Commande (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    var id : Long?,
+    var id : Long?=null,
     var dateCommande : LocalDate,
     var dateModif : LocalDate,
     var statut : String,

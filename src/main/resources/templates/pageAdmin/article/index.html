@@ -1,0 +1,94 @@
+<!doctype html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="content">
+    <main class="py-5">
+        <div class="container">
+            <h1 class="mb-5 text-center">Gestion des articles</h1>
+            <p>Nombre d'articles : <span th:text="${articles.size()}"></span></p>
+            <div class="alert alert-success my-1" th:if="${msg}" th:text="${msg}"></div>
+            <a href ="@{/ecommerce/admin/articles/choisirType}" class="btn btn-success">+ Article</a>
+
+            <h2>Livres</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Stock</th>
+                    <th>estDisponible</th>
+                    <th>Date de Modif</th>
+                    <th>Lien Image</th>
+                    <th>Auteur</th>
+                    <th>Genre</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="article : ${articles}" th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Livre)}">
+                    <td th:text="${article.id}"></td>
+                    <td th:text="${article.nom}"></td>
+                    <td th:text="${article.prix}"></td>
+                    <td th:text="${article.stock}"></td>
+                    <td th:text="${article.estDisponible}"></td>
+                    <td th:text="${article.dateModif}"></td>
+                    <td><img th:src="${article.lienImage}" style="width:50px"/></td>
+                    <td th:text="${article.auteur}"></td>
+                    <td th:text="${article.genre}"></td>
+                    <td th:text="${article.description}"></td>
+                    <td th:text="${article.date}"></td>
+                    <td>
+                        <a th:href="@{'/ecommerce/admin/articles/' + ${article.id}}" class="btn btn-primary">Afficher</a>
+                        <a th:href="@{'/ecommerce/admin/articles/edit/' + ${article.id}}" class="btn btn-primary">Modifier</a>
+                        <form th:action="@{/ecommerce/admin/articles/delete}" method="post" style="display:inline">
+                            <input type="hidden" th:value="${article.id}" name="id">
+                            <button onclick="return confirm('Supprimer cet article ?');" type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h2>Papeterie</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Stock</th>
+                    <th>Date de Modif</th>
+                    <th>Lien Image</th>
+                    <th>Marque</th>
+                    <th>Catégorie</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="article : ${articles}" th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Papeterie)}">
+                    <td th:text="${article.id}"></td>
+                    <td th:text="${article.nom}"></td>
+                    <td th:text="${article.prix}"></td>
+                    <td th:text="${article.stock}"></td>
+                    <td th:text="${article.dateModif}"></td>
+                    <td><img th:src="${article.lienImage}" style="width:50px"/></td>
+                    <td th:text="${article.marque}"></td>
+                    <td th:text="${article.categorie}"></td>
+                    <td>
+                        <a th:href="@{'/ecommerce/admin/articles/' + ${article.id}}" class="btn btn-primary">Afficher</a>
+                        <a th:href="@{'/ecommerce/admin/articles/edit/' + ${article.id}}" class="btn btn-primary">Modifier</a>
+                        <form th:action="@{/ecommerce/admin/articles/delete}" method="post" style="display:inline">
+                            <input type="hidden" th:value="${article.id}" name="id">
+                            <button onclick="return confirm('Supprimer cet article ?');" type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </main>
+</div>
+</html>

@@ -12,10 +12,9 @@ import java.util.Date
 @Entity
 @DiscriminatorValue("LIVRE")
 class Livre (
-    id:Long?,
+    id:Long?=null,
     nom:String,
     prix:Double,
-    estDisponible:Boolean,
     dateModif: LocalDate,
     stock : Int,
     lienImage : String,
@@ -25,5 +24,5 @@ class Livre (
     var genre : String,
     var description : String,
     var date : String
-) : Article(id,nom,prix,estDisponible,dateModif,stock,lienImage){
+) : Article(id,nom,prix,dateModif,stock,lienImage){
 }

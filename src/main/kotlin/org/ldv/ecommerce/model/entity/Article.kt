@@ -13,10 +13,9 @@ abstract class Article (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    var id : Long?,
+    var id : Long?=null,
     var nom : String,
     var prix : Double,
-    var estDisponible : Boolean,
     var dateModif : LocalDate,
     var stock : Int,
     var lienImage : String,

@@ -7,6 +7,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.*
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.OneToMany
+import java.time.LocalDate
 import java.util.Date
 
 
@@ -15,9 +16,9 @@ class Utilisateur(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    var id: Long?,
+    var id: Long?=null,
     var nom: String,
-    var dateModif : Date,
+    var dateModif : LocalDate,
     @Column(unique = true)
     var email : String,
     var mdp : String,

@@ -1,0 +1,13 @@
+<!doctype html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="content">
+    <main class="py-5">
+        <div class="container">
+            <h1 class="mb-5 text-center">Gestion des articles</h1>
+            <p>Nombre d'articles : <span th:text="${articles.size()}"></span></p>
+        </div>
+    </main>
+</div>
+
+
+</html>

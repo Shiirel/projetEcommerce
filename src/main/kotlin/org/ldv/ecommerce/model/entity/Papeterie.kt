@@ -9,10 +9,9 @@ import java.time.LocalDate
 @Entity
 @DiscriminatorValue("PAPETERIE")
 class Papeterie (
-    id:Long?,
+    id:Long?=null,
     nom:String,
     prix:Double,
-    estDisponible:Boolean,
     dateModif: LocalDate,
     stock : Int,
     lienImage : String,
@@ -20,5 +19,5 @@ class Papeterie (
     @Column(nullable = false)
     var marque : String,
     var categorie : String
-) : Article(id,nom,prix,estDisponible,dateModif,stock,lienImage){
+) : Article(id,nom,prix,dateModif,stock,lienImage){
 }

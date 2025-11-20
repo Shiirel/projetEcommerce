@@ -1,0 +1,21 @@
+<!doctype html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+    <div th:fragment="content">
+        <main class="py-5">
+            <div class="container">
+                <h1 class="mb-5 text-center">Gestion des articles</h1>
+                <div class="text-center">
+                    <a class="btn btn-primary mx-2"
+                       th:href="@{/ecommerce/admin/articles/createLivre}">
+                        Créer un Livre
+                    </a>
+
+                    <a class="btn btn-success mx-2"
+                       th:href="@{/ecommerce/admin/articles/createPapeterie}">
+                        Créer une Papeterie
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+</html>

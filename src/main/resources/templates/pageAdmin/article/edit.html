@@ -1,0 +1,101 @@
+<!doctype html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="content">
+    <main class="py-5">
+        <div class="container">
+            <h1 class="mb-5 text-center">Edition d'un article</h1>
+
+            <!--LIVRE-->
+            <form th:if="${livre != null}" th:object="${livre}" action="@{/ecommerce/admin/articles/updateLivre}" method="post">
+                <input type="hidden" th:field="*{id}">
+                <div class="row">
+                    <div class="my-2 mx-auto col-4">
+                        <div class="mb-2">
+                            <label for="livreNom">Saisir le nom : </label>
+                            <input id="livreNom" th:field="*{nom}" type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="livrePrix">Saisir le prix : </label>
+                            <input id="livrePrix" th:field="*{prix}" type="text" class="form-control" min="1" max="999" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="livreDateModif">Date de modification : </label>
+                            <input id="livreDateModif" th:field="*{dateModif}" type="date" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="livreStock">Stock : </label>
+                            <input id="livreStock" th:field="*{stock}" type="number" class="form-control" min="0" max="999" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="livreImage">Lien de l'image : </label>
+                            <input id="livreImage" th:field="*{lienImage}" type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="livreAuteur">Auteur : </label>
+                            <input id="livreAuteur" th:field="*{auteur}" type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="livreGenre">Genre : </label>
+                            <input id="livreGenre" th:field="*{genre}" type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="livreDescription">Description : </label>
+                            <input id="livreDescription" th:field="*{description}" type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="livreDate">Date de publication : </label>
+                            <input id="livreDate" th:field="*{date}" type="text" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                        <a th:href="@{/ecommerce/admin/articles}" class="btn btn-secondary">Retour</a>
+                    </div>
+                </div>
+            </form>
+
+
+            <!--PAPETERIE-->
+            <form th:if="${papeterie != null}" th:object="${papeterie}" action="@{/ecommerce/admin/articles/updatePapeterie}" method="post">
+                <input type="hidden" th:field="*{id}">
+                <div class="row">
+                    <div class="my-2 mx-auto col-4">
+                        <div class="mb-2">
+                            <label for="papeterieNom">Nom : </label>
+                            <input id="papeterieNom" th:field="*{nom}" type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="papeteriePrix">Prix : </label>
+                            <input id="papeteriePrix" th:field="*{prix}" type="text" class="form-control" min="1" max="999" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="papeterieDateModif">Date de modification : </label>
+                            <input id="papeterieDateModif" th:field="*{dateModif}" type="date" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="papeterieStock">Stock : </label>
+                            <input id="papeterieStock" th:field="*{stock}" type="number" class="form-control" min="0" max="999" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="papeterieImage">Lien de l'image : </label>
+                            <input id="papeterieImage" th:field="*{lienImage}" type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="papeterieMarque">Marque : </label>
+                            <input id="papeterieMarque" th:field="*{marque}" type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="papeterieCategorie">Catégorie : </label>
+                            <input id="papeterieCategorie" th:field="*{categorie}" type="text" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                        <a th:href="@{/ecommerce/admin/articles}" class="btn btn-secondary">Retour</a>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </main>
+</div>
+</html>
+
