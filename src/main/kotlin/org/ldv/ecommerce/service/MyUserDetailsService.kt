@@ -25,7 +25,6 @@ class MyUserDetailsService(private val utilisateurDAO: UtilisateurDAO) : UserDet
      * @return UserDetails : objet utilisé par Spring Security pour authentifier l'utilisateur.
      */
     override fun loadUserByUsername(username: String): UserDetails {
-
         /**
          * Récupération de l'utilisateur via son email (username).
          * Si aucun utilisateur n'est trouvé, on lance une exception attendue par Spring Security :

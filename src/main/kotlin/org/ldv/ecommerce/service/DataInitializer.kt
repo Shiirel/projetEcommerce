@@ -105,7 +105,7 @@ class DataInitializer(
 
             // === Roles ===
             val roleAdmin = Role(
-                nom = "ADMINISTRATEUR"
+                nom = "ADMIN"
             )
             val roleClient = Role(
                 nom = "CLIENT"

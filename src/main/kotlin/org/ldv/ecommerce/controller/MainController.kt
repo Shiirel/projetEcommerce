@@ -17,13 +17,13 @@ class MainController (){
         return "index"
     }
     @GetMapping("/ecommerce/login")
-    fun login(@RequestParam error: Boolean?, model: Model): String {
+    fun login(@RequestParam(required = false) error: Boolean?, model: Model): String {
         // Ajoute un attribut "error" au modèle si la requête contient une erreur
         model.addAttribute("error", error == true)
         return "pagesVisiteur/login"
     }
 
-    @GetMapping("/ecommerce/profil")
+    @GetMapping("/ecommerce/profile")
     fun profile(authentication: Authentication): String {
 
         // Récupération des rôles (authorities) de l’utilisateur connecté
@@ -31,7 +31,7 @@ class MainController (){
 
         // Si l'utilisateur est admin → redirection
         if ("ROLE_ADMIN" in roles) {
-            return "redirect:/ecommerce/pageAdmin/dashboard"
+            return "redirect:/ecommerce/admin/dashboard"
         }
 
         // Sinon → on affiche la page profile
