@@ -38,5 +38,10 @@ class MainController (){
         return "pagesClient/profile"
     }
 
+    @GetMapping("/ecommerce/admin/dashboard")
+    fun dashboard(): String {
+        return "pageAdmin/dashboard"
+    }
+
 
 }

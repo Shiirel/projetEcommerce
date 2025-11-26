@@ -109,6 +109,21 @@ class AdminArticleController(
         return "redirect:/ecommerce/admin/articles"
     }
 
+    @PostMapping("/ecommerce/admin/articles/storeLivre")
+    fun storeLivre(@ModelAttribute livre: Livre, redirectAttributes: RedirectAttributes): String {
+        livreDAO.save(livre)
+        redirectAttributes.addFlashAttribute("msg", "Le livre a bien été ajouté")
+        return "redirect:/ecommerce/admin/articles"
+    }
+
+    @PostMapping("/ecommerce/admin/articles/storePapeterie")
+    fun storePapeterie(@ModelAttribute papeterie: Papeterie, redirectAttributes: RedirectAttributes): String {
+        papeterieDAO.save(papeterie)
+        redirectAttributes.addFlashAttribute("msg", "La papeterie a bien été ajoutée")
+        return "redirect:/ecommerce/admin/articles"
+    }
+
+
 
 
 

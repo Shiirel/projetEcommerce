@@ -6,7 +6,7 @@
             <h1 class="mb-5 text-center">Gestion des articles</h1>
             <p>Nombre d'articles : <span th:text="${articles.size()}"></span></p>
             <div class="alert alert-success my-1" th:if="${msg}" th:text="${msg}"></div>
-            <a href ="@{/ecommerce/admin/articles/choisirType}" class="btn btn-success">+ Article</a>
+            <a th:href ="@{/ecommerce/admin/articles/choisirType}" class="btn btn-success">+ Article</a>
 
             <h2>Livres</h2>
             <table class="table table-striped">
@@ -16,7 +16,6 @@
                     <th>Nom</th>
                     <th>Prix</th>
                     <th>Stock</th>
-                    <th>estDisponible</th>
                     <th>Date de Modif</th>
                     <th>Lien Image</th>
                     <th>Auteur</th>
@@ -32,7 +31,6 @@
                     <td th:text="${article.nom}"></td>
                     <td th:text="${article.prix}"></td>
                     <td th:text="${article.stock}"></td>
-                    <td th:text="${article.estDisponible}"></td>
                     <td th:text="${article.dateModif}"></td>
                     <td><img th:src="${article.lienImage}" style="width:50px"/></td>
                     <td th:text="${article.auteur}"></td>

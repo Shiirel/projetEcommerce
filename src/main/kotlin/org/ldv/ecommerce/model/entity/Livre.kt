@@ -22,8 +22,12 @@ class Livre (
 
     var auteur : String,
     var genre : String,
+
     @Column(length = 1500)
     var description : String,
     var date : String
 ) : Article(id,nom,prix,dateModif,stock,lienImage){
+
+    val type: String
+        get() = "Livre"
 }

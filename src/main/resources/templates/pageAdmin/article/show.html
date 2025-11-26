@@ -3,49 +3,33 @@
 <div th:fragment="content">
     <main class="py-5">
         <div class="container">
-            <h1 class="mb-5 text-center" th:text="${article.nom}"></h1>
-            <div class="row">
-                <div class="col">
-                    <img th:src="${article.lienImage}"
-                         alt="Image de l'article"
-                         class="img-fluid"
-                         onerror="this.onerror=null;this.src='/images/default.jpeg';">
-                </div>
-                <div class="col">
-                    <ul>
-                        <li>Prix : <span th:text="${article.prix}"></span></li>
-                        <li>Stock : <span th:text="${article.stock}"></span></li>
-                        <li>Type : <span th:text="${article.getClass().simpleName}"></span></li> <!--Affiche si c'est un livre ou de la papeterie (suggestion chatgpt)-->
+            <h1 class="mb-4">Détails de l'article</h1>
 
-                        <li th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Livre)}">
-                            Auteur : <span th:text="${article.auteur}"></span>
-                        </li>
-                        <li th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Livre)}">
-                            Genre : <span th:text="${article.genre}"></span>
-                        </li>
-                        <li th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Livre)}">
-                            Description : <span th:text="${article.description}"></span>
-                        </li>
-                        <li th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Livre)}">
-                            Date : <span th:text="${article.date}"></span>
-                        </li>
+            <p><strong>Type :</strong> <span th:text="${article.type}"></span></p>
+            <p><strong>Id :</strong> <span th:text="${article.id}"></span></p>
+            <p><strong>Nom :</strong> <span th:text="${article.nom}"></span></p>
+            <p><strong>Prix :</strong> <span th:text="${article.prix}"></span></p>
+            <p><strong>Stock :</strong> <span th:text="${article.stock}"></span></p>
+            <p><strong>Date de modification :</strong> <span th:text="${article.dateModif}"></span></p>
+            <p><strong>Lien image :</strong> <img th:src="${article.lienImage}" style="width:100px"></p>
 
-                        <li th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Papeterie)}">
-                            Marque : <span th:text="${article.marque}"></span>
-                        </li>
-                        <li th:if="${article instanceof T(org.ldv.ecommerce.model.entity.Papeterie)}">
-                            Catégorie : <span th:text="${article.categorie}"></span>
-                        </li>
-                    </ul>
-
-                    <div class="btn-group">
-                        <a th:href="@{/ecommerce/admin/articles}" class="btn btn-secondary">Retour</a>
-                        <a href="" class="btn btn-primary">Modifier</a>
-                        <a href="" class="btn btn-danger">Supprimer</a>
-                    </div>
-                </div>
+            <!-- Champs spécifiques selon le type -->
+            <div th:if="${article.type == 'Livre'}">
+                <p><strong>Auteur :</strong> <span th:text="${article.auteur}"></span></p>
+                <p><strong>Genre :</strong> <span th:text="${article.genre}"></span></p>
+                <p><strong>Description :</strong> <span th:text="${article.description}"></span></p>
+                <p><strong>Date :</strong> <span th:text="${article.date}"></span></p>
             </div>
 
+            <div th:if="${article.type == 'Papeterie'}">
+                <p><strong>Marque :</strong> <span th:text="${article.marque}"></span></p>
+                <p><strong>Catégorie :</strong> <span th:text="${article.categorie}"></span></p>
+            </div>
+
+            <div class="mt-3">
+                <a th:href="@{/ecommerce/admin/articles}" class="btn btn-secondary">Retour</a>
+                <a th:href="@{'/ecommerce/admin/articles/edit/' + ${article.id}}" class="btn btn-primary">Modifier</a>
+            </div>
         </div>
     </main>
 </div>

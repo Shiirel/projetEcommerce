@@ -20,4 +20,7 @@ class Papeterie (
     var marque : String,
     var categorie : String
 ) : Article(id,nom,prix,dateModif,stock,lienImage){
+
+    val type: String
+        get() = "Papeterie"
 }

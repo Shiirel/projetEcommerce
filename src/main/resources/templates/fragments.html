@@ -1,24 +1,63 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mon Site</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
-    <div th:fragment="header" class="container">
-        <header class="bg-dark text-white py-3">
-            <div class="container">
-                <h1>Mon Site</h1>
-                <nav>Menu de navigation</nav>
-            </div>
-        </header>
-    </div>
-    <div th:fragment="footer" class="container">
-        <footer class="bg-secondary text-white text-center py-3">
-            <div class="container">
-                <p class="mb-0">&copy; 2025 – Mon Site Bootstrap</p>
-            </div>
-        </footer>
-    </div>
+<div th:fragment="header">
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1><a th:href="@{/ecommerce}" class="text-white text-decoration-none">Mon Site</a></h1>
+
+            <nav class="d-flex align-items-center">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/ecommerce}">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/ecommerce/livres}">Livres</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/ecommerce/papeterie}">Papeterie</a></li>
+                </ul>
+
+                <!-- Barre de recherche -->
+                <form th:action="@{/ecommerce/recherche}" method="get" class="d-flex ms-3">
+                    <input class="form-control me-2" type="search" name="q" placeholder="Rechercher...">
+                    <button class="btn btn-outline-light" type="submit">Rechercher</button>
+                </form>
+
+                <ul class="nav ms-3">
+                    <!-- Connexion/Inscription si NON connecté -->
+                    <li class="nav-item" sec:authorize="isAnonymous()">
+                        <a class="nav-link text-white" th:href="@{/ecommerce/login}">S'identifier</a>
+                    </li>
+                    <li class="nav-item" sec:authorize="isAnonymous()">
+                        <a class="nav-link text-white" th:href="@{/ecommerce/register}">Inscription</a>
+                    </li>
+
+                    <!-- Logout si connecté -->
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <a class="nav-link text-white" th:href="@{/ecommerce/logout}">Se déconnecter</a>
+                    </li>
+
+                    <!-- Panier -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white" th:href="@{/ecommerce/panier}">Panier</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</div>
+
+<div th:fragment="footer" class="container">
+    <footer class="bg-secondary text-white text-center py-3">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 – Mon Site Bootstrap</p>
+        </div>
+    </footer>
+</div>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
+
