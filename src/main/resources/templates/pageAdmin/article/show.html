@@ -11,7 +11,7 @@
             <p><strong>Prix :</strong> <span th:text="${article.prix}"></span></p>
             <p><strong>Stock :</strong> <span th:text="${article.stock}"></span></p>
             <p><strong>Date de modification :</strong> <span th:text="${article.dateModif}"></span></p>
-            <p><strong>Lien image :</strong> <img th:src="${article.lienImage}" style="width:100px"></p>
+            <p><strong>Image :</strong> <img th:src="${article.lienImage}" style="width:200px"></p>
 
             <!-- Champs spécifiques selon le type -->
             <div th:if="${article.type == 'Livre'}">

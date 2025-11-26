@@ -3,11 +3,38 @@
 <div th:fragment="content">
     <main class="py-5">
         <div class="container">
-            <h1 class="mb-5 text-center">L'Occasion de Lire</strong></h1>
+            <h1 class="mb-5 text-center">L'Occasion de Lire</h1>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Image Livres -->
+                <div class="col-md-6">
+                    <a th:href="@{/livres}" class="text-decoration-none text-dark">
+                        <div class="card border-0 shadow-sm">
+                            <img src="/image/livre.jpg" class="card-img-top" alt="Livres"
+                                 style="height: 300px; object-fit: cover;">
+                            <div class="card-body">
+                                <h3 class="card-title">Livres</h3>
+                                <p class="card-text">Découvrez notre collection de livres.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Image Papeterie -->
+                <div class="col-md-6">
+                    <a th:href="@{/papeterie}" class="text-decoration-none text-dark">
+                        <div class="card border-0 shadow-sm">
+                            <img src="/image/papeterie.jpg" class="card-img-top" alt="Papeterie"
+                                 style="height: 300px; object-fit: cover;">
+                            <div class="card-body">
+                                <h3 class="card-title">Papeterie</h3>
+                                <p class="card-text">Découvrez nos articles de papeterie.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </main>
-
 </div>
-
-
 </html>

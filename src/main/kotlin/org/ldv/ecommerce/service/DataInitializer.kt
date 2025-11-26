@@ -55,7 +55,7 @@ class DataInitializer(
                 prix = 8.50,
                 dateModif = LocalDate.now(),
                 stock = 15,
-                lienImage = "https://books.google.fr/books?id=LJSQAwAAQBAJ&printsec=frontcover&hl=fr&source=gbs_ge_summary_r&cad=0",
+                lienImage = "https://m.media-amazon.com/images/I/81SM8DNE55L._SL1500_.jpg",
                 auteur = "Paulo Coelho",
                 genre = "roman",
                 description = "Brida, une jeune Irlandaise à la recherche de la Connaissance, s’intéresse depuis toujours aux différents aspects de la magie, mais elle aspire à quelque chose de plus. Sa quête l’amène à rencontrer des personnes d’une grande sagesse, qui lui font découvrir le monde spirituel : un mage habitant la forêt lui apprend à vaincre ses peurs et à croire en la bonté de l’univers ; une magicienne lui explique comment danser au rythme du monde et invoquer la lune. Brida part alors à la rencontre de son destin. Parviendra-t-elle à réconcilier sa vie amoureuse et son désir de tout quitter pour devenir sorcière ? Ce roman enchanté renoue avec des thèmes chers aux lecteurs de Paulo Coelho : le conteur y tisse un récit qui mêle amour, passion, mystère et spiritualité.",
@@ -63,11 +63,11 @@ class DataInitializer(
             )
 
             val articlePapeterie = Papeterie(
-                nom = "Signet avec élastique",
+                nom = "Marque-page chinois - En bois sculpté avec pompons",
                 prix = 2.90,
                 dateModif = LocalDate.now(),
                 stock = 15,
-                lienImage = "https://www.amazon.fr/Legami-%C3%A9lastique-certifi%C3%A9-Vintage-maintenir/dp/B0DMPGN7TT/ref=sr_1_8?c=ts&dib=eyJ2IjoiMSJ9.SNSyLhsLDXybGxYMXd0cRgXAagvYN21c7N4HGlQtd-ZgKtBP1xpULk5zdC48d1ulT43i65D2WemEgu5cmyxZBMPwcDZP7SPBAKpw3P9lJwwOyxknkZhtBG43OsPP0b2V_K0SzryKaEPqrYHiObXKSFi0wLpTTbd6YqyRZwJpz4AZxqpDRzwwReRYOEB6DA8w6ex8_moIkOlAV9QSgfZFDjXQrEvhrYCLGdSQTsDsSBCyFptRhBErepOHyoCEX2pjLF_B-RhF4FSaTc1_b5W6lKjbSdU3hFsx9YON4I_jSyY.-GFmryqZCYkMOikaZiOeoFj5P4rnZuawwyIy1u7o9Go&dib_tag=se&keywords=Marque-pages&qid=1763459353&s=officeproduct&sr=1-8&ts_id=205302031&th=1#:~:text=Signet%20avec%20%C3%A9lastique%2C%20papier%20certifi%C3%A9%20FSC%2C%20th%C3%A8me%20Vintage%20Book%2C%20permet%20de%20maintenir%20le%20sengo%20et%20le%20livre%20ferm%C3%A9s%2C%204%2C7%20x%2017%2C5%20cm",
+                lienImage = "https://m.media-amazon.com/images/I/81XkxldhrNL.jpg",
                 marque = "Legami",
                 categorie = "marque-page"
             )

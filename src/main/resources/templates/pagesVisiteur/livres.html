@@ -3,11 +3,27 @@
 <div th:fragment="content">
   <main class="py-5">
     <div class="container">
-      <h1 class="mb-5 text-center">Catalogue Livres</h1>
+      <h1 class="text-center mb-5">Nos Livres</h1>
+      <div class="row g-4">
+        <div class="col-md-4" th:each="livre : ${livres}">
+          <div class="card h-100 shadow-sm">
+            <img th:src="${livre.lienImage}" class="card-img-top" style="height:200px; object-fit:cover;" alt="Image du livre">
+            <div class="card-body">
+              <h5 th:text="${livre.nom}"></h5>
+              <p th:text="'Auteur : ' + ${livre.auteur}"></p>
+              <p th:text="'Genre : ' + ${livre.genre}"></p>
+              <p th:text="'Prix : ' + ${livre.prix} + ' €'"></p>
+            </div>
+            <div class="card-footer">
+              <a th:href="@{'/livres/' + ${livre.id}}" class="btn btn-primary w-100">Voir le livre</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
-
 </div>
+
 
 
 </html>

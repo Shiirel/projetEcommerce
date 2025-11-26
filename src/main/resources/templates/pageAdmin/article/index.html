@@ -17,7 +17,7 @@
                     <th>Prix</th>
                     <th>Stock</th>
                     <th>Date de Modif</th>
-                    <th>Lien Image</th>
+                    <th>Image</th>
                     <th>Auteur</th>
                     <th>Genre</th>
                     <th>Description</th>
@@ -32,7 +32,7 @@
                     <td th:text="${article.prix}"></td>
                     <td th:text="${article.stock}"></td>
                     <td th:text="${article.dateModif}"></td>
-                    <td><img th:src="${article.lienImage}" style="width:50px"/></td>
+                    <td><img th:src="${article.lienImage}" style="width:100px" alt="Image du produit"/></td>
                     <td th:text="${article.auteur}"></td>
                     <td th:text="${article.genre}"></td>
                     <td th:text="${article.description}"></td>
@@ -58,7 +58,7 @@
                     <th>Prix</th>
                     <th>Stock</th>
                     <th>Date de Modif</th>
-                    <th>Lien Image</th>
+                    <th>Image</th>
                     <th>Marque</th>
                     <th>Catégorie</th>
                     <th>Actions</th>
@@ -71,7 +71,7 @@
                     <td th:text="${article.prix}"></td>
                     <td th:text="${article.stock}"></td>
                     <td th:text="${article.dateModif}"></td>
-                    <td><img th:src="${article.lienImage}" style="width:50px"/></td>
+                    <td><img th:src="${article.lienImage}" style="width:100px" alt="Image du produit"/></td>
                     <td th:text="${article.marque}"></td>
                     <td th:text="${article.categorie}"></td>
                     <td>
