@@ -36,4 +36,12 @@ class VisiteurController(
         return "pagesVisiteur/show"
     }
 
+    @GetMapping("/papeterie/{id}")
+    fun showPapeterie(@PathVariable id:Long, model:Model):String {
+        val unArticle = papeterieDAO.findById(id).orElseThrow()
+        model.addAttribute("article",unArticle)
+
+        return "pagesVisiteur/show"
+    }
+
 }

@@ -23,6 +23,8 @@ class MainController (){
         return "pagesVisiteur/login"
     }
 
+
+
     @GetMapping("/ecommerce/profile")
     fun profile(authentication: Authentication): String {
 
