@@ -23,6 +23,13 @@ class MainController (){
         return "pagesVisiteur/login"
     }
 
+    @GetMapping("/ecommerce/logout")
+    fun logout(@RequestParam(required = false) error: Boolean?, model: Model): String {
+        // Ajoute un attribut "error" au modèle si la requête contient une erreur
+        model.addAttribute("error", error == true)
+        return "pagesVisiteur/login"
+    }
+
 
 
     @GetMapping("/ecommerce/profile")
