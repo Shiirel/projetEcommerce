@@ -25,7 +25,7 @@ class SecurityConfig {
             //.csrf { it.disable() } //TODO Retirer cette ligne
             //Restriction des endpoints en fonction du role
             .authorizeHttpRequests {
-                it.requestMatchers("/ecommerce", "/ecommerce/register", "/ecommerce/login", "/css/**", "/js/**", "/img/**", "/favicon.ico").permitAll()
+                it.requestMatchers("/ecommerce", "/ecommerce/register", "/ecommerce/login", "/css/**", "/js/**", "/image/**", "/error","/favicon.ico").permitAll()
                     // Autoriser l'accès pour les utilisateurs avec le rôle "ADMIN" à /admin/**
                     .requestMatchers("/ecommerce/admin/**").hasRole("ADMIN")
                     // Autoriser l'accès pour les utilisateurs avec le rôle "CLIENT" à /client/**
