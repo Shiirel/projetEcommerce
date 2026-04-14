@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html th:replace="~{base :: html}" lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="content">
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h2>Rédiger un nouvel article de blog</h2>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/ecommerce/admin/blog/store}" th:object="${nouveauBlog}" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Titre de l'actualité</label>
+                        <input type="text" th:field="*{titre}" class="form-control" placeholder="Entrez un titre accrocheur" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contenu</label>
+                        <textarea th:field="*{contenu}" class="form-control" rows="8" placeholder="Écrivez votre texte ici..." required></textarea>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a th:href="@{/ecommerce/blog}" class="btn btn-secondary">Annuler</a>
+                        <button type="submit" class="btn btn-success">Publier l'article</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
