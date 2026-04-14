@@ -21,6 +21,11 @@
 
                 <!-- Barre de recherche -->
                 <form th:action="@{/ecommerce/recherche}" method="get" class="d-flex ms-3">
+                    <select name="cat" class="form-select me-2">
+                        <option value="livre">Livres</option>
+                        <option value="papeterie">Papeterie</option>
+                    </select>
+
                     <input class="form-control me-2" type="search" name="q" placeholder="Rechercher...">
                     <button class="btn btn-outline-light" type="submit">Rechercher</button>
                 </form>
@@ -36,7 +41,12 @@
 
                     <!-- Logout si connecté -->
                     <li class="nav-item" sec:authorize="isAuthenticated()">
-                        <a class="nav-link text-white" th:href="@{/ecommerce/logout}">Se déconnecter</a>
+                        <form th:action="@{/ecommerce/logout}" method="post" id="logoutForm" class="d-inline">
+                            <button type="submit" class="nav-link text-white btn btn-link shadow-none"
+                                    style="display: inline; padding: 0; border: none; font: inherit;">
+                                Se déconnecter
+                            </button>
+                        </form>
                     </li>
 
 

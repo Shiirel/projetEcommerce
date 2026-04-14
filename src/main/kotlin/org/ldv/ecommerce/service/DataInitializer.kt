@@ -62,6 +62,18 @@ class DataInitializer(
                 date = "1990"
             )
 
+            val articleLivre2 = Livre(
+                nom = "Twilight",
+                prix = 19.00,
+                dateModif = LocalDate.now(),
+                stock = 15,
+                lienImage = "https://static.fnac-static.com/multimedia/PE/Images/FR/NR/09/5c/1a/1727497/1540-1/tsp20250417072620/Saga-Twilight-Tome-1-Fascination.jpg",
+                auteur = "Stephenie Meyer",
+                genre = "roman",
+                description = "Isabella Swan, 17 ans, déménage à Forks, petite ville pluvieuse dans l'état de Washington, pour vivre avec son père. Elle s'attend à ce que sa nouvelle vie soit aussi ennuyeuse que la ville elle-même. Or, au lycée, elle est terriblement intriguée par le comportement d'une étrange fratrie, deux filles et trois garçons. Bella tombe follement amoureuse de l'un d'eux, Edward Cullen.",
+                date = "2005"
+            )
+
             val articlePapeterie = Papeterie(
                 nom = "Marque-page chinois - En bois sculpté avec pompons",
                 prix = 2.90,
@@ -74,7 +86,7 @@ class DataInitializer(
 
 
             // === Sauvegarde des articles ===
-            livreDAO.saveAll(listOf(articleLivre))
+            livreDAO.saveAll(listOf(articleLivre,articleLivre2))
             papeterieDAO.saveAll(listOf(articlePapeterie))
             println("✅ Données initiales insérées : ${livreDAO.count()} livres.")
             println("✅ Données initiales insérées : ${papeterieDAO.count()} articles de papeterie.")

@@ -23,12 +23,18 @@ class AdminArticleController(
 ) {
 
     @GetMapping("/ecommerce/admin/articles")
-    fun index(model: Model): String {
-        val livres = livreDAO.findAll()
-        val papeteries = papeterieDAO.findAll()
-        val articles = livres + papeteries
-        model.addAttribute("articles", articles)
+    fun index(
+        @RequestParam(name = "sort", defaultValue = "desc") sort: String,
+        model: Model
+    ): String {
 
+        val articles = if (sort == "asc") {
+            articleDAO.findAllByOrderByDateModifAsc() // Du plus vieux au plus récent
+        } else {
+            articleDAO.findAllByOrderByDateModifDesc() // Du plus récent au plus vieux
+        }
+
+        model.addAttribute("articles", articles)
         return "pageAdmin/article/index"
     }
 

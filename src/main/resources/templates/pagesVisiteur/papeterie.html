@@ -12,6 +12,14 @@
                             <h5 th:text="${papeterie.nom}"></h5>
                             <p th:text="'Marque : ' + ${papeterie.marque}"></p>
                             <p th:text="'Prix : ' + ${papeterie.prix} + ' €'"></p>
+
+
+                            <form th:action="@{/ecommerce/panier/ajouter}" method="post" class="mt-2">
+                                <input type="hidden" name="id" th:value="${papeterie.id}" />
+                                <button type="submit" class="btn btn-success w-100">
+                                    🛒 Ajouter au panier
+                                </button>
+                            </form>
                         </div>
                         <div class="card-footer">
                             <a th:href="@{'/papeterie/' + ${papeterie.id}}" class="btn btn-primary w-100">Voir l'article</a>
@@ -22,7 +30,3 @@
         </div>
     </main>
 </div>
-
-
-
-</html>

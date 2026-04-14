@@ -7,6 +7,13 @@
             <p>Nombre d'articles : <span th:text="${articles.size()}"></span></p>
             <div class="alert alert-success my-1" th:if="${msg}" th:text="${msg}"></div>
             <a th:href ="@{/ecommerce/admin/articles/choisirType}" class="btn btn-success">+ Article</a>
+            <form th:action="@{/ecommerce/admin/articles}" method="get" class="d-flex align-items-center">
+                <label for="tri" class="me-2 fw-bold">Trier par :</label>
+                <select name="sort" id="tri" class="form-select w-auto" onchange="this.form.submit()">
+                    <option value="desc" th:selected="${param.sort == null || param.sort[0] == 'desc'}">Plus récents d'abord</option>
+                    <option value="asc" th:selected="${param.sort != null && param.sort[0] == 'asc'}">Plus anciens d'abord</option>
+                </select>
+            </form>
 
             <h2>Livres</h2>
             <table class="table table-striped">
